@@ -1,0 +1,22 @@
+def permutacao(palavra1: str, palavra2: str) -> bool:
+    if len(palavra1) != len(palavra2):
+        return False
+    letras1 = {}
+    letras2 = {}
+    for letra in palavra1:
+        if letra in letras1:
+            letras1[letra] += 1
+        else:
+            letras1[letra] = 1
+    for letra in palavra2:
+        if letra in letras2:
+            letras2[letra] += 1
+        else:
+            letras2[letra] = 1
+    return letras1 == letras2
+
+# Exemplos de uso:
+print(permutacao("amor", "roma"))    # True
+print(permutacao("metro", "morte"))  # True
+print(permutacao("casa", "saca"))    # True
+print(permutacao("casa", "caso"))    # False
